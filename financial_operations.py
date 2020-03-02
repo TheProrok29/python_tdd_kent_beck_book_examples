@@ -1,7 +1,12 @@
 from __future__ import annotations
+from abc import ABCMeta
 
 
-class Money():
+class Expression(metaclass=ABCMeta):
+    pass
+
+
+class Money(Expression):
 
     def __init__(self, amount: int, currency: str) -> None:
         self._amount = amount
