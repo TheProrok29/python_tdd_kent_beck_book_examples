@@ -2,13 +2,12 @@ from __future__ import annotations
 
 
 class Money:
-    pass
-
-
-class Dollar(Money):
 
     def __init__(self, amount: int) -> None:
         self._amount = amount
+
+
+class Dollar(Money):
 
     def __eq__(self, other) -> bool:
         dollar: Dollar = other
