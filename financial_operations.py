@@ -1,5 +1,4 @@
 from __future__ import annotations
-from abc import abstractmethod
 
 
 class Money():
@@ -23,11 +22,9 @@ class Money():
     def franc(amount: int) -> Money:
         return Franc(amount, "CHF")
 
-    @abstractmethod
     def times(self, multiplier: int) -> Money:
         return Money(self._amount * multiplier, self._currency)
 
-    @abstractmethod
     def currency(self) -> str:
         return self._currency
 
