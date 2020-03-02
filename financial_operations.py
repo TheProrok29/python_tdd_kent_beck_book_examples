@@ -13,14 +13,14 @@ class Money(ABC):
 
     @staticmethod
     def dollar(amount: int) -> Money:
-        return Dollar(amount)
+        return Dollar(amount, None)
 
     @staticmethod
     def franc(amount: int) -> Money:
-        return Franc(amount)
+        return Franc(amount, None)
 
     @abstractmethod
-    def times(self, multiplier: int) -> Moneys:
+    def times(self, multiplier: int) -> Money:
         raise NotImplementedError
 
     @abstractmethod
@@ -34,7 +34,7 @@ class Dollar(Money):
         self._currency = "USD"
 
     def times(self, multiplier: int) -> Money:
-        return Dollar(self._amount * multiplier)
+        return Dollar(self._amount * multiplier, None)
 
     def currency(self) -> str:
         return self._currency
@@ -46,7 +46,7 @@ class Franc(Money):
         self._currency = "CHF"
 
     def times(self, multiplier: int) -> Money:
-        return Franc(self._amount * multiplier)
+        return Franc(self._amount * multiplier, None)
 
     def currency(self) -> str:
         return self._currency

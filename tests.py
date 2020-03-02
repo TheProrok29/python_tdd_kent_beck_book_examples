@@ -9,7 +9,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(Money.dollar(15), five.times(3))
 
     def test_franc_multiplication(self):
-        five: Franc = Franc(5)
+        five: Money = Money.franc(5)
         self.assertEqual(Money.franc(10), five.times(2))
         self.assertEqual(Money.franc(15), five.times(3))
 
