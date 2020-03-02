@@ -4,7 +4,7 @@ from financial_operations import Dollar, Franc
 
 class MyTestCase(unittest.TestCase):
     def test_multiplication(self):
-        five: Dollar = Dollar(5)
+        five: Dollar = Money.dollar(5)
         self.assertEqual(Dollar(10), five.times(2))
         self.assertEqual(Dollar(15), five.times(3))
 
