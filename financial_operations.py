@@ -1,8 +1,8 @@
 from __future__ import annotations
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
 
-class Money(ABC):
+class Money():
 
     def __init__(self, amount: int, currency: str) -> None:
         self._amount = amount
