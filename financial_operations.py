@@ -6,6 +6,11 @@ class Expression(metaclass=ABCMeta):
     pass
 
 
+class Bank:
+    def reduce(self, source: Expression, to: str) -> Money:
+        return None
+
+
 class Money(Expression):
 
     def __init__(self, amount: int, currency: str) -> None:
