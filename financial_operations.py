@@ -29,18 +29,24 @@ class Money(ABC):
 
 
 class Dollar(Money):
+    def __init__(self, amount):
+        self._amount = amount
+        self._currency = "USD"
 
     def times(self, multiplier: int) -> Money:
         return Dollar(self._amount * multiplier)
 
     def currency(self) -> str:
-        return "USD"
+        return self._currency
 
 
 class Franc(Money):
+    def __init__(self, amount):
+        self._amount = amount
+        self._currency = "CHF"
 
     def times(self, multiplier: int) -> Money:
         return Franc(self._amount * multiplier)
 
     def currency(self) -> str:
-        return "CHF"
+        return self._currency
