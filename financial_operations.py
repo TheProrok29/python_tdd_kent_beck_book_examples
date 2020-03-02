@@ -12,6 +12,9 @@ class Money():
         money: Money = other
         return type(self) == type(money) and self._amount == money._amount
 
+    def __repr__(self):
+        return f'Money {self._amount}, {self._currency}'
+
     @staticmethod
     def dollar(amount: int) -> Money:
         return Dollar(amount, "USD")
