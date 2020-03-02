@@ -20,7 +20,11 @@ class Money(ABC):
         return Franc(amount)
 
     @abstractmethod
-    def times(self, multiplier: int) -> NotImplementedError:
+    def times(self, multiplier: int) -> Moneys:
+        raise NotImplementedError
+
+    @abstractmethod
+    def currency(self) -> str:
         raise NotImplementedError
 
 
