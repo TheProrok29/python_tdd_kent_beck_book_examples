@@ -1,5 +1,5 @@
 import unittest
-from financial_operations import Money, Dollar, Franc
+from financial_operations import Money, Franc
 
 
 class MyTestCase(unittest.TestCase):
