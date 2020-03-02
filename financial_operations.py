@@ -25,7 +25,7 @@ class Money():
 
     @abstractmethod
     def times(self, multiplier: int) -> Money:
-        raise NotImplementedError
+        return Money(self._amount * multiplier, self._currency)
 
     @abstractmethod
     def currency(self) -> str:
@@ -36,19 +36,7 @@ class Dollar(Money):
     def __init__(self, amount: int, currency: str):
         super().__init__(amount, currency)
 
-    def times(self, multiplier: int) -> Money:
-        return Money(self._amount * multiplier, self._currency)
-
-    def currency(self) -> str:
-        return self._currency
-
 
 class Franc(Money):
     def __init__(self, amount: int, currency: str):
         super().__init__(amount, currency)
-
-    def times(self, multiplier: int) -> Money:
-        return Money(self._amount * multiplier, self._currency)
-
-    def currency(self) -> str:
-        return self._currency
