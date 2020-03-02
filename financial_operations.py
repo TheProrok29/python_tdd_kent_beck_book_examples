@@ -12,7 +12,7 @@ class Money(ABC):
         return type(self) == type(money) and self._amount == money._amount
 
     @staticmethod
-    def dollar(amount: int) -> Dollar:
+    def dollar(amount: int) -> Money:
         return Dollar(amount)
 
     @abstractmethod
