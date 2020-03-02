@@ -10,7 +10,7 @@ class Money():
 
     def __eq__(self, other) -> bool:
         money: Money = other
-        return type(self) == type(money) and self._amount == money._amount
+        return self.currency() == money.currency() and self._amount == money._amount
 
     def __repr__(self):
         return f'Money {self._amount}, {self._currency}'
