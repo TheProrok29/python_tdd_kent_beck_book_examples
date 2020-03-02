@@ -1,7 +1,8 @@
 from __future__ import annotations
+from abc import ABC, abstractmethod
 
 
-class Money:
+class Money(ABC):
 
     def __init__(self, amount: int) -> None:
         self._amount = amount
@@ -9,6 +10,10 @@ class Money:
     def __eq__(self, other) -> bool:
         money: Money = other
         return type(self) == type(money) and self._amount == money._amount
+
+    @staticmethod
+    def dollar(amount: int) -> Dollar:
+        return Dollar(amount)
 
 
 class Dollar(Money):

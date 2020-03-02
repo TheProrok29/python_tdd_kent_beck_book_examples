@@ -1,10 +1,10 @@
 import unittest
-from financial_operations import Dollar, Franc
+from financial_operations import Money, Dollar, Franc
 
 
 class MyTestCase(unittest.TestCase):
     def test_multiplication(self):
-        five: Dollar = Money.dollar(5)
+        five: Money = Money.dollar(5)
         self.assertEqual(Dollar(10), five.times(2))
         self.assertEqual(Dollar(15), five.times(3))
 
