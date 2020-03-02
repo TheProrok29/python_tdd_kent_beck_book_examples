@@ -27,8 +27,3 @@ class Money():
 
     def currency(self) -> str:
         return self._currency
-
-
-class Franc(Money):
-    def __init__(self, amount: int, currencies):
-        super().__init__(amount, currencies)
