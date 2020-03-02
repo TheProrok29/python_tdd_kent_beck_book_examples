@@ -8,7 +8,8 @@ class Dollar:
         self.amount = amount
 
     def __eq__(self, other) -> bool:
-        return True
+        dollar: Dollar = other
+        return self.amount == dollar.amount
 
     def times(self, multiplier: int) -> Dollar:
         return Dollar(self.amount * multiplier)
