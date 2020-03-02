@@ -8,6 +8,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(Dollar(10), five.times(2))
         self.assertEqual(Dollar(15), five.times(3))
 
+    def test_franc_multiplication(self):
+        five: Franc = Franc(5)
+        self.assertEqual(Franc(10), five.times(2))
+        self.assertEqual(Franc(15), five.times(3))
+
     def test_equality(self):
         self.assertEqual(Dollar(5), Dollar(5))
         self.assertNotEqual(Dollar(5), Dollar(6))
