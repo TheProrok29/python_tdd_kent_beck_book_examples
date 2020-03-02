@@ -13,7 +13,7 @@ class Money(ABC):
 
     @staticmethod
     def dollar(amount: int) -> Money:
-        return Dollar(amount, None)
+        return Dollar(amount, "USD")
 
     @staticmethod
     def franc(amount: int) -> Money:
@@ -31,10 +31,10 @@ class Money(ABC):
 class Dollar(Money):
     def __init__(self, amount: int, currency: str):
         self._amount = amount
-        self._currency = "USD"
+        self._currency = currency
 
     def times(self, multiplier: int) -> Money:
-        return Dollar(self._amount * multiplier, None)
+        return Money.dollar(self._amount * multiplier)
 
     def currency(self) -> str:
         return self._currency
