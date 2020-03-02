@@ -1,8 +1,8 @@
 class Dollar:
-    amount = 10
+    amount: int = 0
 
     def __init__(self, amount: int) -> None:
-        pass
+        self.amount = amount
 
     def times(self, multiplier: int) -> None:
-        pass
+        self.amount *= multiplier
