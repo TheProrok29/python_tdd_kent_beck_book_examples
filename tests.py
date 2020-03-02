@@ -10,15 +10,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_franc_multiplication(self):
         five: Franc = Franc(5)
-        self.assertEqual(Franc(10), five.times(2))
-        self.assertEqual(Franc(15), five.times(3))
+        self.assertEqual(Money.franc(10), five.times(2))
+        self.assertEqual(Money.franc(15), five.times(3))
 
     def test_equality(self):
         self.assertEqual(Money.dollar(5), Money.dollar(5))
         self.assertNotEqual(Money.dollar(5), Money.dollar(6))
-        self.assertEqual(Franc(5), Franc(5))
-        self.assertNotEqual(Franc(5), Franc(6))
-        self.assertNotEqual(Franc(5), Dollar(5))
+        self.assertEqual(Money.franc(5), Money.franc(5))
+        self.assertNotEqual(Money.franc(5), Money.franc(6))
+        self.assertNotEqual(Money.franc(5), Money.dollar(5))
 
 
 if __name__ == '__main__':
