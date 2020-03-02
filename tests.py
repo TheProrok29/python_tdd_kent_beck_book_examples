@@ -23,8 +23,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual("CHF", Money.franc(1).currency())
 
     def test_simple_addition(self):
-        total = Money.dollar(5).plus(Money.dollar(5))
-        self.assertEqual(Money.dollar(10), total)
+        five: Money = Money.dollar(5)
+        total: Expression = five.plus(five)
+        bank: Bank = Bank()
+        reduced: Money = bank.reduce(total, "USD")
+        self.assertEqual(Money.dollar(10), reduced)
 
 
 if __name__ == '__main__':
