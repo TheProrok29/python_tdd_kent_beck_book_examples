@@ -15,6 +15,10 @@ class Money(ABC):
     def dollar(amount: int) -> Dollar:
         return Dollar(amount)
 
+    @abstractmethod
+    def times(self, multiplier: int) -> NotImplementedError:
+        raise NotImplementedError
+
 
 class Dollar(Money):
 
