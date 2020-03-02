@@ -25,7 +25,7 @@ class Money(ABC):
 
     @abstractmethod
     def currency(self) -> str:
-        raise NotImplementedError
+        return self._currency
 
 
 class Dollar(Money):
