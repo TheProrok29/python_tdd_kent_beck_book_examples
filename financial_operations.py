@@ -13,11 +13,11 @@ class Money:
 
 class Dollar(Money):
 
-    def times(self, multiplier: int) -> Dollar:
+    def times(self, multiplier: int) -> Money:
         return Dollar(self._amount * multiplier)
 
 
 class Franc(Money):
 
-    def times(self, multiplier: int) -> Franc:
+    def times(self, multiplier: int) -> Money:
         return Franc(self._amount * multiplier)
