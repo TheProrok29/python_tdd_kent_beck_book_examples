@@ -19,9 +19,5 @@ class Dollar(Money):
 
 class Franc(Money):
 
-    def __eq__(self, other) -> bool:
-        franc: Franc = other
-        return self._amount == franc._amount
-
     def times(self, multiplier: int) -> Franc:
         return Franc(self._amount * multiplier)
