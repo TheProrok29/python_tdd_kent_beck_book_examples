@@ -4,8 +4,9 @@ from abc import ABC, abstractmethod
 
 class Money(ABC):
 
-    def __init__(self, amount: int) -> None:
+    def __init__(self, amount: int, currency: str) -> None:
         self._amount = amount
+        self._currency = currency
 
     def __eq__(self, other) -> bool:
         money: Money = other
@@ -30,8 +31,7 @@ class Money(ABC):
 
 class Dollar(Money):
     def __init__(self, amount: int, currency: str):
-        self._amount = amount
-        self._currency = currency
+        super().__init__(amount, currency)
 
     def times(self, multiplier: int) -> Money:
         return Money.dollar(self._amount * multiplier)
@@ -42,8 +42,7 @@ class Dollar(Money):
 
 class Franc(Money):
     def __init__(self, amount: int, currency: str):
-        self._amount = amount
-        self._currency = currency
+        super().__init__(amount, currency)
 
     def times(self, multiplier: int) -> Money:
         return Money.franc(self._amount * multiplier)
