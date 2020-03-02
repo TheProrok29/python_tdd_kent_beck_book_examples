@@ -15,6 +15,10 @@ class Money(ABC):
     def dollar(amount: int) -> Money:
         return Dollar(amount)
 
+    @staticmethod
+    def franc(amount: int) -> Money:
+        return Franc(amount)
+
     @abstractmethod
     def times(self, multiplier: int) -> NotImplementedError:
         raise NotImplementedError
