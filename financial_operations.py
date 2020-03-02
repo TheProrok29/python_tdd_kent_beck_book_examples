@@ -19,9 +19,6 @@ class Dollar(Money):
 
 class Franc(Money):
 
-    def __init__(self, amount: int) -> None:
-        self._amount = amount
-
     def __eq__(self, other) -> bool:
         franc: Franc = other
         return self._amount == franc._amount
