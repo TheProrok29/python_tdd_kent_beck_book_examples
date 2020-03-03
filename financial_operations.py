@@ -18,8 +18,9 @@ class Total(Expression):
 
 class Bank:
     def reduce(self, source: Expression, to: str) -> Money:
-        total: Total = source
-        return total.reduce(to)
+        if isinstance(source, Money):
+            return source
+        return source.reduce(to)
 
 
 class Money(Expression):
