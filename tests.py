@@ -42,6 +42,11 @@ class MyTestCase(unittest.TestCase):
         result: Money = bank.reduce(total, "USD")
         self.assertEqual(Money.dollar(7), result)
 
+    def test_reduce_money(self):
+        bank: Bank = Bank()
+        result: Money = bank.reduce(Money.dollar(1), "USD")
+        self.aassertEqual(Money.dollar(1), result)
+
 
 if __name__ == '__main__':
     unittest.main()
