@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_plus_returns_total(self):
         five: Money = Money.dollar(5)
-        result: Expression = five.plus(5)
+        result: Expression = five.plus(five)
         total: Total = result
         self.assertEqual(five, total.augend)
         self.assertEqual(five, total.addend)
