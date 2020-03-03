@@ -11,12 +11,15 @@ class Total(Expression):
         self.augend = augend
         self.addend = addend
 
+    def reduce(self, to: str) -> Money:
+        amount: int = self.augend._amount + self.addend._amount
+        return Money(amount, to)
+
 
 class Bank:
     def reduce(self, source: Expression, to: str) -> Money:
         total: Total = source
-        amount: int = total.augend._amount + total.addend._amount
-        return Money(amount, to)
+        return total.reduce(to)
 
 
 class Money(Expression):
