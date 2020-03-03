@@ -12,7 +12,7 @@ class Total(Expression):
         self.addend = addend
 
     def reduce(self, to: str) -> Money:
-        amount: int = self.augend._amount + self.addend._amount
+        amount: int = self.augend.amount + self.addend.amount
         return Money(amount, to)
 
 
@@ -25,15 +25,15 @@ class Bank:
 class Money(Expression):
 
     def __init__(self, amount: int, currency: str) -> None:
-        self._amount = amount
+        self.amount = amount
         self._currency = currency
 
     def __eq__(self, other) -> bool:
         money: Money = other
-        return self.currency() == money.currency() and self._amount == money._amount
+        return self.currency() == money.currency() and self.amount == money.amount
 
     def __repr__(self):
-        return f'Money {self._amount}, {self._currency}'
+        return f'Money {self.amount}, {self._currency}'
 
     @staticmethod
     def dollar(amount: int) -> Money:
@@ -44,7 +44,7 @@ class Money(Expression):
         return Money(amount, "CHF")
 
     def times(self, multiplier: int) -> Money:
-        return Money(self._amount * multiplier, self._currency)
+        return Money(self.amount * multiplier, self._currency)
 
     def currency(self) -> str:
         return self._currency
