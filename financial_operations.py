@@ -2,6 +2,12 @@ from __future__ import annotations
 from abc import ABCMeta
 
 
+class Total:
+    def __init__(self):
+        self.augend = None
+        self.addend = None
+
+
 class Expression(metaclass=ABCMeta):
     pass
 
