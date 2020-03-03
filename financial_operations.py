@@ -1,9 +1,11 @@
 from __future__ import annotations
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 
 
 class Expression(metaclass=ABCMeta):
-    pass
+    @abstractmethod
+    def reduce(self, to: str) -> Money:
+        raise NotImplementedError
 
 
 class Total(Expression):
