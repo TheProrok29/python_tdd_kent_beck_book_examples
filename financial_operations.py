@@ -8,8 +8,8 @@ class Expression(metaclass=ABCMeta):
 
 class Total(Expression):
     def __init__(self, augend: Money, addend: Money):
-        self.augend = None
-        self.addend = None
+        self.augend = augend
+        self.addend = addend
 
 
 class Bank:
