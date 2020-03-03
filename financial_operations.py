@@ -44,5 +44,5 @@ class Money(Expression):
     def currency(self) -> str:
         return self._currency
 
-    def plus(self, addend: Money) -> Expression:
-        return Money(self._amount + addend._amount, self._currency)
+    def plus(self, addend: Money) -> Total:
+        return Total(self, addend)
