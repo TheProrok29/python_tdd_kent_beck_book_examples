@@ -4,7 +4,7 @@ from abc import ABCMeta, abstractmethod
 
 class Expression(metaclass=ABCMeta):
     @abstractmethod
-    def reduce(self, to: str, bank: Bank) -> Money:
+    def reduce(self, bank: Bank, to: str) -> Money:
         raise NotImplementedError
 
 
@@ -13,7 +13,7 @@ class Total(Expression):
         self.augend = augend
         self.addend = addend
 
-    def reduce(self, to: str, bank: Bank) -> Money:
+    def reduce(self, bank: Bank, to: str) -> Money:
         amount: int = self.augend.amount + self.addend.amount
         return Money(amount, to)
 
@@ -58,6 +58,6 @@ class Money(Expression):
     def plus(self, addend: Money) -> Total:
         return Total(self, addend)
 
-    def reduce(self, to: str, bank: Bank) -> Money:
+    def reduce(self, bank: Bank, to: str) -> Money:
         rate: int = bank.rate(self._currency, to)
         return Money(self.amount / rate, to)
