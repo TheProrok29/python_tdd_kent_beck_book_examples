@@ -40,9 +40,7 @@ class Bank:
         self._rates[self.Pair(source, to)] = rate
 
     def rate(self, source: str, to: str) -> int:
-        if source == "CHF" and to == "USD":
-            return 2
-        return 1
+        return self._rates[self.Pair(source, to)]
 
 
 class Money(Expression):
