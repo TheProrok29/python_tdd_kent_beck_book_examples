@@ -20,9 +20,15 @@ class Total(Expression):
 
 class Bank:
     class Pair:
-        def __init__(self, source, to):
-            self.source = source
-            self.to = to
+        def __init__(self, source: str, to: str):
+            self._source = source
+            self._to = to
+
+        def __eq__(self, other):
+            return self._source == other.source and self._to == other.to
+
+        def __hash__(self):
+            return 0
 
     def reduce(self, source: Expression, to: str) -> Money:
         return source.reduce(self, to)
