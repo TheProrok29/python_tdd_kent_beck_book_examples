@@ -25,7 +25,7 @@ class Bank:
             self._to = to
 
         def __eq__(self, other):
-            return self._source == other.source and self._to == other.to
+            return self._source == other._source and self._to == other._to
 
         def __hash__(self):
             return 0
