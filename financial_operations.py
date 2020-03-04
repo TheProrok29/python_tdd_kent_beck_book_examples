@@ -22,7 +22,7 @@ class Total(Expression):
         return Money(amount, to)
 
     def plus(self, addend: Expression) -> Expression:
-        return None
+        return Total(self, addend)
 
 
 class Bank:
