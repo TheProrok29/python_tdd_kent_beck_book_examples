@@ -7,6 +7,10 @@ class Expression(metaclass=ABCMeta):
     def reduce(self, bank: Bank, to: str) -> Money:
         raise NotImplementedError
 
+    @abstractmethod
+    def plus(self, addend: Expression) -> Expression:
+        raise NotImplementedError
+
 
 class Total(Expression):
     def __init__(self, augend: Expression, addend: Expression):
