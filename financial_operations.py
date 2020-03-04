@@ -22,6 +22,11 @@ class Bank:
     def reduce(self, source: Expression, to: str) -> Money:
         return source.reduce(self, to)
 
+    def rate(self, source: str, to: str) -> int:
+        if source == "CHF" and to == "USD":
+            return 2
+        return 1
+
 
 class Money(Expression):
 
@@ -54,8 +59,5 @@ class Money(Expression):
         return Total(self, addend)
 
     def reduce(self, to: str, bank: Bank) -> Money:
-        if self._currency == "CHF" and to == "USD":
-            rate: int = 2
-        else:
-            rate: int = 1
+        rate: int = bank.rate(self._currency, to)
         return Money(self.amount / rate, to)
