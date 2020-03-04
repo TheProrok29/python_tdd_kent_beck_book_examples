@@ -82,6 +82,10 @@ class MyTestCase(unittest.TestCase):
         result: Money = bank.reduce(total, "USD")
         self.assertEqual(Money.dollar(20), result)
 
+    def test_string_representation_of_money(self):
+        five_bucks: Expression = Money.dollar(5)
+        self.assertEqual("Money 5, USD", str(five_bucks))
+
 
 if __name__ == '__main__':
     unittest.main()
