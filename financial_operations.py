@@ -24,6 +24,9 @@ class Total(Expression):
     def plus(self, addend: Expression) -> Expression:
         return Total(self, addend)
 
+    def times(self, multiplier: int) -> Expression:
+        return Total(self.augend.times(multiplier), self.addend.times(multiplier))
+
 
 class Bank:
     class Pair:
