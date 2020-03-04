@@ -9,7 +9,7 @@ class Expression(metaclass=ABCMeta):
 
 
 class Total(Expression):
-    def __init__(self, augend: Money, addend: Money):
+    def __init__(self, augend: Expression, addend: Expression):
         self.augend = augend
         self.addend = addend
 
@@ -66,13 +66,13 @@ class Money(Expression):
     def franc(amount: int) -> Money:
         return Money(amount, "CHF")
 
-    def times(self, multiplier: int) -> Money:
+    def times(self, multiplier: int) -> Expression:
         return Money(self.amount * multiplier, self._currency)
 
     def currency(self) -> str:
         return self._currency
 
-    def plus(self, addend: Money) -> Total:
+    def plus(self, addend: Expression) -> Total:
         return Total(self, addend)
 
     def reduce(self, bank: Bank, to: str) -> Money:
