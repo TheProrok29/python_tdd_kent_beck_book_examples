@@ -64,7 +64,7 @@ class MyTestCase(unittest.TestCase):
         result: Money = bank.reduce(five_bucks.plus(ten_francs), "USD")
         self.assertEqual(Money.dollar(10), result)
 
-    def test_sum_plus_money(self):
+    def test_total_plus_money(self):
         five_bucks: Expression = Money.dollar(5)
         ten_francs: Expression = Money.franc(10)
         bank: Bank = Bank()
