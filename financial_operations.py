@@ -21,6 +21,9 @@ class Total(Expression):
         amount = self.augend.reduce(bank, to).amount + self.addend.reduce(bank, to).amount
         return Money(amount, to)
 
+    def plus(self, addend: Expression) -> Expression:
+        return None
+
 
 class Bank:
     class Pair:
