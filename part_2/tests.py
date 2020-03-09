@@ -22,6 +22,7 @@ class WasRun(TestCase):
     def set_up(self) -> None:
         self.wasRun = None
         self.wasSetUp = 1
+        self.log = 'set_up'
 
 
 class TestCaseTest(TestCase):
