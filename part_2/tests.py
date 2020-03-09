@@ -18,10 +18,10 @@ class WasRun(TestCase):
 
     def test_method(self) -> None:
         self.wasRun = 1
+        self.log = self.log + 'test_method'
 
     def set_up(self) -> None:
         self.wasRun = None
-        self.wasSetUp = 1
         self.log = 'set_up'
 
 
