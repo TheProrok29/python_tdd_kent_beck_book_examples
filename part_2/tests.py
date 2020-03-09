@@ -5,12 +5,14 @@ class TestCase:
     def set_up(self) -> None:
         pass
 
-    def run(self, result) -> None:
-        result.test_started()
+    def run(self) -> None:
         self.set_up()
         method = getattr(self, self.name)
         method()
         self.tear_down()
+
+    def tear_down(self):
+        pass
 
 
 class WasRun(TestCase):
