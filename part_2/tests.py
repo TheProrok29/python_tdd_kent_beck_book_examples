@@ -2,8 +2,11 @@ class WasRun:
     def __init__(self, name):
         self.wasRun = None
 
+    def test_method(self):
+        pass
 
-test = WasRun('testMethod')
+
+test = WasRun('test_method')
 print(test.wasRun)
-test.testMethod()
+test.test_method()
 print(test.wasRun)
