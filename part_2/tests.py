@@ -2,7 +2,11 @@ class TestCase:
     def __init__(self, name: str):
         self.name = name
 
+    def set_up(self):
+        pass
+
     def run(self) -> None:
+        self.set_up()
         method = getattr(self, self.name)
         method()
 
