@@ -2,7 +2,7 @@ class TestCase:
     def __init__(self, name: str):
         self.name = name
 
-    def set_up(self):
+    def set_up(self) -> None:
         pass
 
     def run(self) -> None:
@@ -20,6 +20,7 @@ class WasRun(TestCase):
         self.wasRun = 1
 
     def set_up(self) -> None:
+        self.wasRun = None
         self.wasSetUp = 1
 
 
