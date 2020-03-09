@@ -15,6 +15,9 @@ class WasRun(TestCase):
     def test_method(self) -> None:
         self.wasRun = 1
 
+    def set_up(self) -> None:
+        self.wasSetUp = 1
+
 
 class TestCaseTest(TestCase):
     def test_running(self):
@@ -26,7 +29,7 @@ class TestCaseTest(TestCase):
     def test_set_up(self):
         test = WasRun('test_method')
         test.run()
-        assert (test.was_set_up)
+        assert (test.wasSetUp)
 
 
 TestCaseTest('test_running').run()
