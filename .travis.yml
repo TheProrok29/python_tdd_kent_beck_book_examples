@@ -3,6 +3,8 @@ python:
   - "3.7"
 install:
   - "pip install codecov"
+before_script:
+  - cd part_2
 script:
   - coverage run tests.py
 after_success:
