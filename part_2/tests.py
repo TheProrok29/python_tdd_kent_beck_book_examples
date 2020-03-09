@@ -16,7 +16,12 @@ class WasRun(TestCase):
         self.wasRun = 1
 
 
-test = WasRun('test_method')
-print(test.wasRun)
-test.run()
-print(test.wasRun)
+class TestCaseTest(TestCase):
+    def test_running(self):
+        test = WasRun('test_method')
+        assert (not test.wasRun)
+        test.run()
+        assert (test.wasRun)
+
+
+TestCaseTest('test_running').run()
