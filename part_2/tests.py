@@ -5,8 +5,11 @@ class WasRun:
     def test_method(self) -> None:
         self.wasRun = 1
 
+    def run(self) -> None:
+        self.test_method()
+
 
 test = WasRun('test_method')
 print(test.wasRun)
-test.test_method()
+test.run()
 print(test.wasRun)
