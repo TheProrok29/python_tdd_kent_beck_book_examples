@@ -32,8 +32,7 @@ class TestCase:
     def set_up(self) -> None:
         pass
 
-    def run(self) -> TestResult:
-        result = TestResult()
+    def run(self, result) -> TestResult:
         result.test_started()
         self.set_up()
         try:
@@ -100,8 +99,12 @@ class TestCaseTest(TestCase):
         assert ('2 run, 1 failed' == result.summary())
 
 
-TestCaseTest('test_template_method').run().summary()
-TestCaseTest('test_result').run().summary()
-TestCaseTest('test_failed_result').run().summary()
-TestCaseTest('test_failed_result_formatting').run().summary()
-TestCaseTest('test_suite').run().summary()
+suite = TestSuite()
+suite.add(TestCaseTest("test_template_method"))
+suite.add(TestCaseTest("test_result"))
+suite.add(TestCaseTest("test_failed_result"))
+suite.add(TestCaseTest("test_failed_result_formatting"))
+suite.add(TestCaseTest("test_suite"))
+result = TestResult()
+suite.run(result)
+print(result.summary())
