@@ -79,8 +79,16 @@ class TestCaseTest(TestCase):
         result.test_failed()
         assert ('1 run, 1 failed' == result.summary())
 
+    def test_suite(self):
+        suite = TestSuite()
+        suite.add(WasRun('test_method'))
+        suite.add(WasRun('test_broken_method'))
+        result = suite.run()
+        assert ('2 run, 1 failed' == result.summary())
 
-TestCaseTest('test_template_method').run()
-TestCaseTest('test_result').run()
-TestCaseTest('test_failed_result').run()
-TestCaseTest('test_failed_result_formatting').run()
+
+TestCaseTest('test_template_method').run().summary()
+TestCaseTest('test_result').run().summary()
+TestCaseTest('test_failed_result').run().summary()
+TestCaseTest('test_failed_result_formatting').run().summary()
+TestCaseTest('test_suite').run().summary()
