@@ -14,6 +14,9 @@ class TestCase:
     def tear_down(self):
         pass
 
+class TestResult:
+    def summary(self):
+        return '1 run, 0 failed'
 
 class WasRun(TestCase):
     def __init__(self, name: str):
