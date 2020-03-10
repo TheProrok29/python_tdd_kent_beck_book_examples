@@ -45,6 +45,9 @@ class WasRun(TestCase):
     def tear_down(self) -> None:
         self.log = self.log + 'tear_down '
 
+    def test_broken_method(self):
+        raise Exception
+
 
 class TestCaseTest(TestCase):
 
@@ -66,3 +69,4 @@ class TestCaseTest(TestCase):
 
 TestCaseTest('test_template_method').run()
 TestCaseTest('test_result').run()
+TestCaseTest('test_failed_result').run()
