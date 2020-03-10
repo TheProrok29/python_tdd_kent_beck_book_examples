@@ -1,3 +1,8 @@
+class TestResult:
+    def summary(self):
+        return '1 run, 0 failed'
+
+
 class TestCase:
     def __init__(self, name: str):
         self.name = name
@@ -5,18 +10,16 @@ class TestCase:
     def set_up(self) -> None:
         pass
 
-    def run(self) -> None:
+    def run(self) -> TestResult:
         self.set_up()
         method = getattr(self, self.name)
         method()
         self.tear_down()
+        return TestResult()
 
     def tear_down(self):
         pass
 
-class TestResult:
-    def summary(self):
-        return '1 run, 0 failed'
 
 class WasRun(TestCase):
     def __init__(self, name: str):
