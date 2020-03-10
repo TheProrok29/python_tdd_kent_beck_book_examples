@@ -10,7 +10,7 @@ class TestResult:
         self.errorCount += 1
 
     def summary(self):
-        return f'{self.runCount} run, 0 failed'
+        return f'{self.runCount} run, {self.errorCount} failed'
 
 
 class TestCase:
